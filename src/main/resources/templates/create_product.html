@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Product Order Management</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Product Order Management</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/GetOrders}">Home Page</a>
+      </li>
+   
+    </ul>
+  </div>
+</nav>
+<div style="background-color: darkgrey; size: 100%;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center-card">
+				<h1 class="text-center"> Add New Product </h1>
+				<div class="form-control" style="background-color:#f8a7a7; font-family: 'Times New Roman', Times, serif;">
+					<form th:action="@{/products/save}" th:object="${product}" method="POST">
+						
+                        <div class="form-floating mb-3">
+                        <label>Product Id :</label>
+						<input class="form-control" type="text" name="id" th:field="*{id}" placeholder="eg.1234" required/>
+						</div>
+
+						<div class="form-group">
+							<label>Product Name :</label>
+							<input class="form-control" type="text" name="Pname" th:field="*{Pname}" placeholder="Name Of Product" required/>
+						</div>
+						<div class="form-group">
+							<label>Customer Id :</label>
+							<input class="form-control" type="text" name="CustId" th:field="*{CustId}" placeholder="Customer Id" required/>
+						</div>
+						<div class="form-group">
+							<label>Shipping Location :</label>
+							<input class="form-control" type="text" name="Location" th:field="*{Location}" placeholder="Location" required/>
+						</div>
+						<div class="form-group">
+							<label>Order Status :</label>
+							<input class="form-control" type="text" name="OrderStatus" th:field="*{OrderStatus}" placeholder="eg.Delivered" required/>
+						</div>
+						<div class="form-group">
+							<label>Cost of Product :</label>
+							<input class="form-control" type="text" name="Cost" th:field="*{Cost}" placeholder="eg.rs" required />
+						</div>
+						
+						<div class="Box-footer">
+							<button type="submit" class="btn btn-danger">
+								Submit
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
